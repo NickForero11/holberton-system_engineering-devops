@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Simple function that displays the time for every hour using the 12H format.
+let "HOURS=0"
+while [ $HOURS -ne 13 ]
+do
+    let "MINUTES=1"
+    echo "Hour: $HOURS"
+    while [ $MINUTES -ne 60 ]
+    do
+        echo $MINUTES
+        let "MINUTES++"
+    done
+    let "HOURS++"
+done
