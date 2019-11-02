@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Simple script that prints 10 times Holberton School using a until loop.
+COUNTER=0
+until [ $COUNTER -eq 10 ]
+    do
+        echo 'Holberton School'
+        let "COUNTER++"
+done
