@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# The next line is for ignore a certain instance in this script.
+# shellcheck disable=SC2009
+# Bash script that displays lines containing the bash word,
+# to easily get the PID of your Bash process.
+# Based on ps auxf.
+ps auxf | grep "bash"
