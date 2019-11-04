@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Bash script that displays a list of currently running processes with:
+# Showing all processes, for all users, including which not have a TTY
+# -> ax to enable BSD style syntax and list all processes.
+# Display in a user-oriented format
+# -> u to  enable this output format.
+# Show process hierarchy
+# -> f to enable this output modifier that uses a forest ascii art hierarchy.
+ps axuf
