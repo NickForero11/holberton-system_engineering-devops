@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Bash script that kills the 4-to_infinity_and_beyond process.
+# First we need the PID of the process,
+PID=$(pgrep -f "to_infinity_and" | head -n1)
+# Keep in mind that pgrep checks only 15 characters of every process,
+# to find its PID.
+# This script only kills one process at time,
+# if you have n processes of 4-to_infinity_and_beyond,
+# you need to call it n times.
+kill -15 "$PID"
+# 15 = SIGTERM
