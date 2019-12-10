@@ -2,7 +2,6 @@
 
 $owner = 'www-data'
 file { 'holberton':
-  ensure  => present,
   path    => '/tmp/holberton',
   mode    => '0744',
   owner   => $owner,
