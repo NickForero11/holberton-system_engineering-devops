@@ -35,6 +35,16 @@ What you should learn from this project:
 
   * Your SSH client configuration must be configured to refuse to authenticate using a password
 
+### [4. Client configuration file (w/ Puppet)](./4-puppet_ssh_config.pp)
+
+* Check your SSH client configuration with this requirements:
+
+  * Your SSH client configuration must be configured to use the private key ~/.ssh/holberton
+
+  * Your SSH client configuration must be configured to refuse to authenticate using a password
+
+* If the configuration file don't accomplish the requirements it will change it to enable the correct configuration
+
 ---
 
 ## Author
