@@ -43,8 +43,6 @@ What you should learn from this project:
 
   * Your SSH client configuration must be configured to refuse to authenticate using a password
 
-* If the configuration file don't accomplish the requirements it will change it to enable the correct configuration
-
 ---
 
 ## Author
