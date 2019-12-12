@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# The service of the apache server isn't running
+# The solution is restart the service
+service apache2 start
