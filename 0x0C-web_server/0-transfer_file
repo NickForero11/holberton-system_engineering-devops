@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Script that transfer a file to a certain server using SFTP
+# It accepts as args the ssh connection details for the server
+# and the path to the file that will be transfered.
+
+PATH_TO_FILE=$1
+SERVER_ADDRESS=$2
+USERNAME=$3
+PATH_TO_SSH_KEY=$4
+
+if [ $# -lt 3 ]
+then
+	echo 'Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY'
+else
+	scp -i "$PATH_TO_SSH_KEY" -o StrictHostKeyChecking=no "$PATH_TO_FILE" "$USERNAME"@"$SERVER_ADDRESS":~/
+fi
