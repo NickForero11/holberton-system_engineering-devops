@@ -17,6 +17,6 @@ sudo apt-get install -y nginx
 sudo ufw allow 'Nginx HTTP'
 echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html
 sudo sed -i "/server_name _;/a $line_add_redirection" $sites_conf_file
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/cuatom_404.html
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
 sudo sed -i "/server_name _;/a \\\n\t$line_add_404" $sites_conf_file
 sudo service nginx restart
