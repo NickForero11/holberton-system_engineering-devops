@@ -2,11 +2,10 @@
 # Script that install Nginx and configures:
 #   a simple default page.
 #   a /redirectme page that redirects to a 301 moved permanently.
-redirect_string="\\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
 sudo apt-get -y update
 sudo apt-get install -y nginx
 sudo ufw allow 'Nginx HTTP'
 echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html
 echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
-sudo sed -i "45 i ${redirect_string}" /etc/nginx/sites-enabled/default
+sudo sed -i "42 i rewrite ^/redirect_me$ www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-enabled/default
 sudo service nginx restart
