@@ -8,7 +8,7 @@
 
 sites_conf_file='/etc/nginx/sites-available/default'
 line_add_redirection='\\\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n'
-line_add_404='a error_page 404 /custom_404.html;\n\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}'
+line_add_404='error_page 404 /custom_404.html;\n\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}'
 
 # Procedure
 
