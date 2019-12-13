@@ -8,7 +8,7 @@
 
 sites_conf_file='/etc/nginx/sites-available/default'
 line_add_redirection='\\\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n'
-line_add_404='error_page 404 /custom_404.html;\n\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}'
+line_add_404='error_page 404 /custom_404.html;\nlocation = /custom_404.html {\nroot /usr/share/nginx/html;\ninternal;\n}'
 
 # Procedure
 
@@ -18,5 +18,5 @@ sudo ufw allow 'Nginx HTTP'
 echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html
 sudo sed -i "/server_name _;/a $line_add_redirection" $sites_conf_file
 echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
-sudo sed -i "/server_name _;/a \\\n\t$line_add_404" $sites_conf_file
+sudo sed -i "/server_name _;/a $line_add_404" $sites_conf_file
 sudo service nginx restart
