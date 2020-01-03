@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Script that install HAProxy 1.8 stable and configures:
+#   a roundrobin load balancer.
+#   HAProxy can be managed with an init script.
+#   added 2 servers to the backend.
+
+# Variables
+
+HAProxy_conf_file='/etc/haproxy/haproxy.cfg'
+
+# Procedure
+# Install dependencies
+sudo apt-get install software-properties-common -y
+# Add the ppa and install HAProxy 2.0 stable lts
+sudo add-apt-repository ppa:vbernat/haproxy-1.8 -y
+sudo apt-get update -y
+sudo apt-get install haproxy=1.8.\* -y
+
+# Add the backend of the load balancer
+echo -e '\nbackend holberton_backend
+        balance roundrobin
+        server 915-web-01 35.231.32.184:80 check
+        server 915-web-02 35.185.113.169:80 check' | sudo tee -a $HAProxy_conf_file
+
+# Add the frontend of the load balancer
+echo -e '\nfrontend default_holberton
+        bind *:80
+        default_backend holberton_backend' | sudo tee -a $HAProxy_conf_file
+
+#Configure to be managed with init script
+echo -e '\nENABLED=1' | sudo tee -a /etc/default/haproxy
+
+# Restart the HAProxy service to load the new configuration
+sudo service haproxy restart
