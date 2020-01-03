@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script to fix default page listening at wrong port.
+sed -i '/listen.*8080/ s/8080/80/' /etc/nginx/sites-enabled/default 
+sudo service nginx stop
