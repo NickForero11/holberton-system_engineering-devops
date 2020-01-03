@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Script that install Nginx and configures:
+#   a simple default page.
+#   a custom header with the server hostname.
+
+# Variables
+
+nginx_conf_file='/etc/nginx/nginx.conf'
+
+# Procedure
+
+sudo apt-get -y update
+sudo apt-get install -y nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html
+sed -i '/sendfile on;/i \\tadd_header X-Served-By $hostname;' $nginx_conf_file
+service nginx restart
