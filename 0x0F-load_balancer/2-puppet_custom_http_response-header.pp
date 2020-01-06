@@ -6,10 +6,6 @@ package { 'Install Nginx':
   ensure => installed,
   name   => 'nginx'
 }
--> exec { 'Allow Nginx http over the firewall':
-  command => "ufw allow 'Nginx HTTP'",
-  path    => '/usr/sbin/'
-}
 
 -> file_line {'Add default page':
   ensure             => 'present',
@@ -26,8 +22,9 @@ package { 'Install Nginx':
   append_on_no_match => true
 }
 
--> service { 'Check Nginx service':
-  ensure => 'running',
-  enable => true,
-  name   => 'nginx'
+service { 'Check Nginx service':
+  ensure  => 'running',
+  enable  => true,
+  name    => 'nginx',
+  require => Package['Install Nginx']
 }
