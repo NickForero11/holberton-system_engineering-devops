@@ -21,13 +21,13 @@ package { 'Install Nginx':
 -> file_line {'Add custom header':
   ensure             => 'present',
   path               => '/etc/nginx/nginx.conf',
-  line               => '       add_header X-Served-By $hostname;',
-  append_on_no_match => true,
-  after              => 'sendfile on;'
+  after              => 'sendfile on;',
+  line               => '	add_header X-Served-By $hostname;',
+  append_on_no_match => true
 }
 
 -> service { 'Check Nginx service':
-  ensure     => running,
-  enable     => true,
-  name       => 'nginx'
+  ensure => 'running',
+  enable => true,
+  name   => 'nginx'
 }
