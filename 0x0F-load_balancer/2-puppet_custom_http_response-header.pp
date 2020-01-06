@@ -2,6 +2,10 @@
 #   a simple default page.
 #   a custom header with the server hostname.
 
+package { 'nginx':
+  ensure  => installed,
+}
+
 file { '/var/www/html/index.html':
   content => 'Holberton School',
 }
