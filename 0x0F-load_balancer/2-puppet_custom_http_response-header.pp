@@ -16,7 +16,7 @@ package { 'Install Nginx':
   ensure             => 'present',
   path               => '/etc/nginx/sites-available/default',
   after              => 'sendfile on;',
-  line               => '	add_header X-Served-By $hostname;',
+  line               => 'add_header X-Served-By $hostname;',
   append_on_no_match => true
 }
 
