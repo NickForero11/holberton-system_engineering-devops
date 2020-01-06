@@ -7,11 +7,9 @@ package { 'Install Nginx':
   name   => 'nginx'
 }
 
--> file_line {'Add default page':
-  ensure             => 'present',
-  path               => '/var/www/html/index.nginx-debian.html',
-  line               => 'Holberton School',
-  append_on_no_match => true
+-> file {'Add default page':
+  path    => '/var/www/html/index.html',
+  content => 'Holberton School',
 }
 
 -> file_line {'Add custom header':
