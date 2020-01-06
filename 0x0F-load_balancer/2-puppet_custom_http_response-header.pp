@@ -16,7 +16,7 @@ package { 'Install Nginx':
 
 -> file_line {'Add custom header':
   ensure             => 'present',
-  path               => '/etc/nginx/nginx.conf',
+  path               => '/etc/nginx/sites-available/default',
   after              => 'sendfile on;',
   line               => '	add_header X-Served-By $hostname;',
   append_on_no_match => true
