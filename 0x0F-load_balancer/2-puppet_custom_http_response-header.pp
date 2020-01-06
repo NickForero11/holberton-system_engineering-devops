@@ -13,7 +13,7 @@ file {'Add default page':
   require => Package['Install Nginx']
 }
 
--> file_line {'Add custom header':
+file_line {'Add custom header':
   ensure  => 'present',
   path    => '/etc/nginx/sites-available/default',
   after   => 'sendfile on;',
@@ -21,7 +21,7 @@ file {'Add default page':
   require => Package['Install Nginx']
 }
 
--> file_line { 'Add redirectme':
+file_line { 'Add redirectme':
   ensure  => 'present',
   path    => '/etc/nginx/sites-available/default',
   after   => 'listen 80 default_server;',
