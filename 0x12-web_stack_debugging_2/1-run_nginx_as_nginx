@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# The problem of the container is that Apache2 is running under the port 8080
+# the Apache configuration was already updated for the default site
+# but the server hasn't being restarted
+# also the Nginx config file hasnt permisses and it's owner it's root
+# by that if Nginx runs with the user nginx
+# the server couldn't catch the config file
+# and also the Nginx server is listening on the port 80
+
+#   Procedure:
+
+# Fix Apache2
+
+rm /etc/apache2/sites-enabled/000-default.conf
+ln -sr /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-enabled/
+sed -i '/Listen 8080/ s/8080/80/' /etc/apache2/ports.conf
+sudo pkill -o apache2
+sudo service apache2 restart
+
+# Change the user of Nginx
+
+sed -i '1 i \user nginx;' /etc/nginx/nginx.conf
+chown nginx:nginx /etc/nginx/nginx.conf
+chmod 644 /etc/nginx/nginx.conf
+
+# Set the default listening port to 8080
+
+sed -i '/^\tlisten.*80/ s/80/8080/' /etc/nginx/sites-available/default
+
+# Restart the Nginx server using it's service
+
+sudo service nginx stop
+su nginx -c 'nginx'
