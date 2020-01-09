@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Short version of script 1
+sudo pkill -o apache2
+sed -i '1 i \user nginx;' /etc/nginx/nginx.conf
+chmod 666 /etc/nginx/nginx.conf
+sed -i '/^\tlisten.*80/ s/80/8080/' /etc/nginx/sites-available/default
+su nginx -c 'nginx'
