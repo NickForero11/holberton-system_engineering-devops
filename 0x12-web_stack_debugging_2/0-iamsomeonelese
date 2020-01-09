@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# Bash Script to check which user executes this script as parameter.
 sudo -u "$1" whoami
