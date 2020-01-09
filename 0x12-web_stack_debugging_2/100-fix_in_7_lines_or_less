@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Short version of script 1
 sudo pkill -o apache2
-sed -i '1 i \user nginx;' /etc/nginx/nginx.conf
 find /etc/nginx/nginx.conf -type f -exec chmod 644 {} \+ -exec chown nginx:nginx {} \+
 sed -i '/^\tlisten.*80/ s/80/8080/' /etc/nginx/sites-available/default
-su nginx -c 'sudo service nginx restart'
+su nginx -c 'service nginx restart'
