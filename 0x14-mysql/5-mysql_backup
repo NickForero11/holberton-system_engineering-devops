@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Script that dumps all the mysql databases using certain password as argument,
+# take in account that after dump the databases it will compress the dump
+# using the date as identifier.
+
+# Process
+# Define variables
+password=$1
+identifier=$(date +%d-%m-%Y)
+# Dump the databases
+mysqldump -u root --password="$password" --all-databases > backup.sql
+# Compress the dump as tar.gz
+tar -zcvf "$identifier".tar.gz backup.sql
