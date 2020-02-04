@@ -16,6 +16,7 @@ if __name__ == '__main__':
     username = user_data.get('username')
     filename = '{}.json'.format(employee_id)
     with open(filename, 'w') as output_file:
-        tasks_data = [{'task': task.get('title'), "completed": task.get('completed'), 'username': username} for task in todo_data]
+        tasks_data = [{'task': task.get('title'), "completed": task.get(
+            'completed'), 'username': username} for task in todo_data]
         data = {employee_id: tasks_data}
         dump(data, output_file)
