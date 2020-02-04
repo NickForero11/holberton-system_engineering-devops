@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Script to fetch employee's TODO list progress info
-from the JSONPlaceholder API and save it on an JSON formatted file.
+"""Script to fetch a specific employee TODO list progress info
+from the JSONPlaceholder API and save it on a JSON formatted file.
 """
+from json import dump
 from requests import get
 from sys import argv
-from json import dump
 
 if __name__ == '__main__':
     employee_id = argv[1]

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Script to fetch employee's TODO list progress info
+"""Script to fetch a specific employee TODO list progress info
 from the JSONPlaceholder API.
 """
 from requests import get
