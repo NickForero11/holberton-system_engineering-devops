@@ -13,7 +13,7 @@ if __name__ == '__main__':
     query_todos = {'userId': employee_id}
     user_data = get(url_user_info.format(employee_id)).json()
     todo_data = get(url_todos_info, params=query_todos).json()
-    username = user_data.get('name')
+    username = user_data.get('username')
     filename = '{}.csv'.format(employee_id)
     with open(filename, 'w') as output_file:
         csv_writer = writer(output_file, delimiter=',', quoting=QUOTE_ALL)
