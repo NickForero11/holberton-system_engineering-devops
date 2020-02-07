@@ -1,16 +1,16 @@
 #!/usr/bin/python3
-"""Module that contains a handlers to interact with the Reddit API.
+"""Module that contains a handler to interact with the Reddit API.
 """
 from requests import get
 
 
 def number_of_subscribers(subreddit):
-    """Function to check the number of subscribers
-    (not active users, total subscribers) for a given subreddit.
+    """Checks the number of subscribers (not active users, total subscribers)
+    of a given subreddit.
 
 
     Arguments:
-        subreddit (str) - The name of the subreddit that will be processed.
+        subreddit (str):    The name of the subreddit that will be processed.
 
     Returns:
         int:    The number of total subscribers of the given subreddit,

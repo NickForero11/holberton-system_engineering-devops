@@ -5,11 +5,18 @@ from requests import get
 
 
 def recurse(subreddit, hot_list=[], next=None):
-    """Function to get the titles of the top 10 hot posts
-    for a given subreddit.
+    """Fetch a list with all the hot posts of a given subreddit.
 
     Arguments:
         subreddit (str) - The name of the subreddit that will be processed.
+
+    Keyword Arguments:
+        hot_list (list):    The list of hot posts (default: [])
+        next (str):         The index to get the next page of posts
+                            if it exists (default: None)
+        Returns:
+        list:    The object of every post containing its data and metadata,
+                 If an invalid subreddit is given, return None.
     """
     URL = 'https://www.reddit.com/r/{}/hot.json'
     query_params = {'limit': 100}

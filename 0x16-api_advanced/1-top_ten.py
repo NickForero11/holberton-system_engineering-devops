@@ -5,11 +5,10 @@ from requests import get
 
 
 def top_ten(subreddit):
-    """Function to get the titles of the top 10 hot posts
-    for a given subreddit.
+    """Prints the titles of the top 10 hot posts of a given subreddit.
 
     Arguments:
-        subreddit (str) - The name of the subreddit that will be processed.
+        subreddit (str):    The name of the subreddit that will be processed.
     """
     URL = 'https://www.reddit.com/r/{}/hot.json'
     data = get(
